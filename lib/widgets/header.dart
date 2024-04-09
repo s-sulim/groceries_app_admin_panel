@@ -9,10 +9,13 @@ import '../responsive.dart';
 class Header extends StatelessWidget {
   const Header({
     Key? key,
+    required this.title,
     required this.fct,
+    this.showTextField = true
   }) : super(key: key);
-
+  final String title;
   final Function fct;
+  final bool showTextField;
   @override
   Widget build(BuildContext context) {
      // ignore: duplicate_ignore
@@ -33,13 +36,13 @@ class Header extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Dashboard",
+              title,
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
         if (Responsive.isDesktop(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
-        Expanded(
+        !showTextField ? Container(): Expanded(
           child: TextField(
             decoration: InputDecoration(
               hintText: "Search",

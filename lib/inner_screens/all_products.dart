@@ -45,6 +45,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                               .read<myMenuController.MenuController>()
                               .controlProductsMenu();
                         },
+                        title: "All products",
                       ),
                       Responsive(
                         mobile: ProductGridWidget(

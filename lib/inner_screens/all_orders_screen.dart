@@ -44,6 +44,7 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                         fct: () {
                           context.read<myMenuController.MenuController>().controlAllOrder();
                         },
+                         title: "All orders",
                       ),
                       const SizedBox(
                         height: 20,

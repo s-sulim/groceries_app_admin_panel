@@ -31,6 +31,7 @@ class DashboardScreen extends StatelessWidget {
               fct: () {
                 context.read<myMenuController.MenuController>().controlDashboarkMenu();
               },
+              title: "Dashboard",
             ),
             const SizedBox(
               height: 15,
