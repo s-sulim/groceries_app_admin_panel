@@ -4,6 +4,7 @@ import 'package:grocery_admin_panel/responsive.dart';
 import 'package:grocery_admin_panel/services/utils.dart';
 import 'package:grocery_admin_panel/widgets/grid_products.dart';
 import 'package:grocery_admin_panel/widgets/header.dart';
+import 'package:grocery_admin_panel/widgets/orders_list.dart';
 import 'package:provider/provider.dart';
 
 import '../controllers/MenuController.dart'  as myMenuController;
@@ -16,6 +17,7 @@ class DashboardScreen extends StatelessWidget {
     Size size = Utils(context).getScreenSize;
     return SafeArea(
       child: SingleChildScrollView(
+        controller: ScrollController(),
         padding: const EdgeInsets.all(defaultPadding),
         child: Column(
           children: [
@@ -42,6 +44,7 @@ class DashboardScreen extends StatelessWidget {
                           childAspectRatio: size.width < 1400 ? 0.8 : 1.05,
                         ),
                       ),
+                      const OrdersList(),
                     ],
                   ),
                 ),
