@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_admin_panel/consts/constants.dart';
+import 'package:grocery_admin_panel/services/utils.dart';
 
 import '../responsive.dart';
 
@@ -30,8 +31,8 @@ class ButtonsWidget extends StatelessWidget {
       onPressed: () {
         onPressed();
       },
-      icon: Icon(icon, size: 20,),
-      label: Text(text),
+      icon: Icon(icon, size: 20, color:Colors.white),
+      label: Text(text, style: TextStyle(color: Colors.white),),
     );
   }
 }
