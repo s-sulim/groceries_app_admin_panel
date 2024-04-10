@@ -22,6 +22,8 @@ class UploadProductForm extends StatefulWidget {
 class _UploadProductFormState extends State<UploadProductForm> {
   final _formKey = GlobalKey<FormState>();
   String _catValue = 'Vegetables';
+  int _groupValue = 1;
+  bool isPiece = false;
   late final TextEditingController _titleController, _priceController;
 
   @override
@@ -186,6 +188,40 @@ class _UploadProductFormState extends State<UploadProductForm> {
                                         height: 10,
                                       ),
                                       // Radio button code here
+                                       Row(
+                                        children: [
+                                          TextWidget(
+                                            text: 'KG',
+                                            color: color,
+                                          ),
+                                          Radio(
+                                            value: 1,
+                                            groupValue: _groupValue,
+                                            onChanged: (valuee) {
+                                              setState(() {
+                                                _groupValue = 1;
+                                                isPiece = false;
+                                              });
+                                            },
+                                            activeColor: Colors.green,
+                                          ),
+                                          TextWidget(
+                                            text: 'Piece',
+                                            color: color,
+                                          ),
+                                          Radio(
+                                            value: 2,
+                                            groupValue: _groupValue,
+                                            onChanged: (valuee) {
+                                              setState(() {
+                                                _groupValue = 2;
+                                                isPiece = true;
+                                              });
+                                            },
+                                            activeColor: Colors.green,
+                                          ),
+                                        ],
+                                      )
                                     ],
                                   ),
                                 ),
