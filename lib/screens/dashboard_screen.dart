@@ -44,7 +44,7 @@ class DashboardScreen extends StatelessWidget {
               ButtonsWidget(onPressed: (){}, text: 'View all', icon: Icons.store, backgroundColor: Colors.blue),
               Spacer(),
                ButtonsWidget(onPressed: (){
-                GlobalMethods.navigateTo(ctx: context, routeName: UploadProductForm.routeName);
+               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const UploadProductForm()));
                }, text: 'Add product', icon: Icons.add, backgroundColor: Colors.blue)
             ],),
 

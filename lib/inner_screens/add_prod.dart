@@ -21,7 +21,7 @@ class UploadProductForm extends StatefulWidget {
 
 class _UploadProductFormState extends State<UploadProductForm> {
   final _formKey = GlobalKey<FormState>();
-
+  String _catValue = 'Vegetables';
   late final TextEditingController _titleController, _priceController;
 
   @override
@@ -65,9 +65,8 @@ class _UploadProductFormState extends State<UploadProductForm> {
       key: context.read<myMenuController.MenuController>().getAddProductscaffoldKey,
       drawer: const SideMenu(),
       body: Row(
-        crossAxisAlignment:CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        
           if (Responsive.isDesktop(context))
             const Expanded(
               child: SideMenu(),
@@ -77,15 +76,23 @@ class _UploadProductFormState extends State<UploadProductForm> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                   const SizedBox(height: 25,),
-                  Header(
-                       title: "Add product",
-                       showTextField: false,
-                       fct: () {
-                    context.read<myMenuController.MenuController>().controlAddProductsMenu();
-                    
-                  }),
-                 const SizedBox(height: 25,),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Header(
+                        fct: () {
+                          context
+                              .read<myMenuController.MenuController>()
+                              .controlAddProductsMenu();
+                        },
+                        title: 'Add product',
+                        showTextField: false),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
                   Container(
                     width: size.width > 650 ? 650 : size.width,
                     color: Theme.of(context).cardColor,
@@ -165,6 +172,8 @@ class _UploadProductFormState extends State<UploadProductForm> {
                                       ),
                                       const SizedBox(height: 10),
                                       // Drop down menu code here
+                                      _categoryDropDown(),
+
                                       const SizedBox(
                                         height: 20,
                                       ),
@@ -242,6 +251,70 @@ class _UploadProductFormState extends State<UploadProductForm> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _categoryDropDown() {
+    final color = Utils(context).color;
+    return Container(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+          style: TextStyle(
+            color: color,
+            fontWeight: FontWeight.w600,
+            fontSize:18,
+          ),
+          value: _catValue,
+          onChanged: (value) {
+            setState(() {
+              _catValue = value!;
+            });
+            print(_catValue);
+          },
+          hint: const Text('Select a category'),
+          items: const [
+            DropdownMenuItem(
+              child: Text(
+                'Vegetables',
+              ),
+              value: 'Vegetables',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                'Fruits',
+              ),
+              value: 'Fruits',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                'Grains',
+              ),
+              value: 'Grains',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                'Nuts',
+              ),
+              value: 'Nuts',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                'Herbs',
+              ),
+              value: 'Herbs',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                'Spices',
+              ),
+              value: 'Spices',
+            )
+          ],
+        )),
       ),
     );
   }
