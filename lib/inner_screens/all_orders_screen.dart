@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_admin_panel/widgets/orders_list.dart';
 import 'package:provider/provider.dart';
@@ -51,7 +52,7 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                       ),
                       const Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: OrdersList(),
+                        child: OrdersList(isInDashboard: false)
                       ),
                     ],
                   ),

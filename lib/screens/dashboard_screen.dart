@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_admin_panel/consts/constants.dart';
 import 'package:grocery_admin_panel/inner_screens/add_prod.dart';
@@ -8,6 +9,7 @@ import 'package:grocery_admin_panel/widgets/buttons.dart';
 import 'package:grocery_admin_panel/widgets/grid_products.dart';
 import 'package:grocery_admin_panel/widgets/header.dart';
 import 'package:grocery_admin_panel/widgets/orders_list.dart';
+import 'package:grocery_admin_panel/widgets/products_widget.dart';
 import 'package:grocery_admin_panel/widgets/text_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -66,7 +68,7 @@ class DashboardScreen extends StatelessWidget {
                           childAspectRatio: size.width < 1400 ? 0.8 : 1.05,
                         ),
                       ),
-                      const OrdersList(),
+                    OrdersList()
                     ],
                   ),
                 ),

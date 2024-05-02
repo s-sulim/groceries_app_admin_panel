@@ -38,7 +38,14 @@ dependencies:
   iconly: ^1.0.1
   dotted_border: ^2.0.0+2
   image_picker: ^0.8.5
-
+  firebase_core: ^2.30.0
+  uuid: ^4.4.0
+  cloud_firestore: ^4.17.0
+  firebase_storage: ^11.7.2
+  fluttertoast: ^8.2.5
+  firebase: ^9.0.2
+  fancy_shimmer_image: ^2.0.2
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -64,7 +71,7 @@ flutter:
   assets:
     - assets/images/groceries.png
     - assets/images/apricot.png
-
+    - assets/images/warning.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
